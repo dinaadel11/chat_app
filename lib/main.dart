@@ -15,9 +15,13 @@ class ScholarChat extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      routes: {
+        'LoginView': (context) => const LoginView(),
+      },
+      initialRoute: 'LoginView',
       debugShowCheckedModeBanner: false,
-      home: LoginView(),
+      home: const LoginView(),
     );
   }
 }

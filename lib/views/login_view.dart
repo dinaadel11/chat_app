@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/constant.dart';
 import 'package:newsapp/views/widget/custom_button.dart';
+import 'package:newsapp/views/widget/custom_text_field.dart';
 import 'package:newsapp/views/widget/register_view.dart';
-import 'package:newsapp/widget/custom_text_field.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -9,7 +10,7 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff2B475E),
+      backgroundColor: primarycolor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),
         child: Column(
@@ -42,19 +43,19 @@ class LoginView extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            CustomTextField(
+            const CustomTextField(
               hintText: 'Email',
             ),
             const SizedBox(
               height: 10,
             ),
-            CustomTextField(
+            const CustomTextField(
               hintText: 'Password',
             ),
             const SizedBox(
               height: 10,
             ),
-            CustomButton(
+            const CustomButton(
               titel: 'Log in',
             ),
             const SizedBox(

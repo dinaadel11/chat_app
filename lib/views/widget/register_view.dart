@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/constant.dart';
 import 'package:newsapp/views/widget/custom_button.dart';
-import 'package:newsapp/widget/custom_text_field.dart';
+import 'package:newsapp/views/widget/custom_text_field.dart';
 
 class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
@@ -8,24 +9,32 @@ class RegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff2B475E),
+      backgroundColor: primarycolor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: Column(
+        child: ListView(
           children: [
-            const Spacer(
-              flex: 2,
+            const SizedBox(
+              height: 77,
             ),
-            Image.asset('assets/images/scholar.png'),
-            const Text(
-              'Scholar Chat',
-              style: TextStyle(
-                  fontSize: 32,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
+            Image.asset(
+              'assets/images/scholar.png',
+              height: 100,
             ),
-            const Spacer(
-              flex: 1,
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Scholar Chat',
+                  style: TextStyle(
+                      fontSize: 32,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 77,
             ),
             const Row(
               children: [
@@ -41,39 +50,41 @@ class RegisterView extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            CustomTextField(
+            const CustomTextField(
               hintText: 'Email',
             ),
             const SizedBox(
               height: 10,
             ),
-            CustomTextField(
+            const CustomTextField(
               hintText: 'Password',
             ),
             const SizedBox(
               height: 10,
             ),
-            CustomButton(
+            const CustomButton(
               titel: 'Register',
             ),
             const SizedBox(
               height: 10,
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'already have an account  ?',
+                const Text(
+                  'Already have an account  ?',
                   style: TextStyle(color: Colors.white),
                 ),
-                Text(
-                  ' log in',
-                  style: TextStyle(color: Color(0xffC7EDE6)),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    ' log in',
+                    style: TextStyle(color: Color(0xffC7EDE6)),
+                  ),
                 ),
               ],
-            ),
-            const Spacer(
-              flex: 3,
             ),
           ],
         ),
