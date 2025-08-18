@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:newsapp/views/widget/custom_button.dart';
-import 'package:newsapp/views/widget/register_view.dart';
 import 'package:newsapp/widget/custom_text_field.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class RegisterView extends StatelessWidget {
+  const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,7 @@ class LoginView extends StatelessWidget {
             const Row(
               children: [
                 Text(
-                  'Log IN',
+                  'Register',
                   style: TextStyle(
                     fontSize: 24,
                     color: Colors.white,
@@ -55,29 +54,21 @@ class LoginView extends StatelessWidget {
               height: 10,
             ),
             CustomButton(
-              titel: 'Log in',
+              titel: 'Register',
             ),
             const SizedBox(
               height: 10,
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
-                  'Dont have an account ?',
+                Text(
+                  'already have an account  ?',
                   style: TextStyle(color: Colors.white),
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) {
-                      return RegisterView();
-                    }));
-                  },
-                  child: const Text(
-                    ' Register',
-                    style: TextStyle(color: Color(0xffC7EDE6)),
-                  ),
+                Text(
+                  ' log in',
+                  style: TextStyle(color: Color(0xffC7EDE6)),
                 ),
               ],
             ),
