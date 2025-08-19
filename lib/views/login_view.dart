@@ -43,21 +43,21 @@ class LoginView extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const CustomTextField(
+            CustomTextField(
               hintText: 'Email',
             ),
             const SizedBox(
               height: 10,
             ),
-            const CustomTextField(
+            CustomTextField(
               hintText: 'Password',
             ),
             const SizedBox(
               height: 10,
             ),
-            const CustomButton(
-              titel: 'Log in',
-            ),
+            //  CustomButton(
+            //   titel: 'Log in',
+            // ),
             const SizedBox(
               height: 10,
             ),
@@ -77,7 +77,9 @@ class LoginView extends StatelessWidget {
                   },
                   child: const Text(
                     ' Register',
-                    style: TextStyle(color: Color(0xffC7EDE6)),
+                    style: TextStyle(
+                      color: Color(0xffC7EDE6),
+                    ),
                   ),
                 ),
               ],

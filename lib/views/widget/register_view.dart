@@ -1,11 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/constant.dart';
 import 'package:newsapp/views/widget/custom_button.dart';
 import 'package:newsapp/views/widget/custom_text_field.dart';
 
 class RegisterView extends StatelessWidget {
-  const RegisterView({super.key});
-
+  RegisterView({super.key});
+  String? email;
+  String? password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,20 +53,52 @@ class RegisterView extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const CustomTextField(
+            CustomTextField(
               hintText: 'Email',
+              onchanged: (data) {
+                email = data;
+              },
             ),
             const SizedBox(
               height: 10,
             ),
-            const CustomTextField(
+            CustomTextField(
               hintText: 'Password',
+              onchanged: (data) {
+                password = data;
+              },
             ),
             const SizedBox(
               height: 10,
             ),
-            const CustomButton(
+            CustomButton(
               titel: 'Register',
+              ontap: () async {
+                try {
+                  var auth = FirebaseAuth.instance;
+                  UserCredential user =
+                      await auth.createUserWithEmailAndPassword(
+                          email: email!, password: password!);
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'weak-password') {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('The password provided is too weak.'),
+                      ),
+                    );
+                  } else if (e.code == 'email-already-in-use') {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content:
+                            Text('The account already exists for that email.'),
+                      ),
+                    );
+                  }
+                  const SnackBar(
+                    content: Text('Success'),
+                  );
+                }
+              },
             ),
             const SizedBox(
               height: 10,
