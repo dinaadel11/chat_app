@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/firebase_options.dart';
 import 'package:newsapp/views/login_view.dart';
+import 'package:newsapp/views/widget/register_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,11 +28,12 @@ class ScholarChat extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        'LoginView': (context) => const LoginView(),
+        'LoginView': (context) => LoginView(),
+        'RegisterView': (context) => RegisterView(),
       },
       initialRoute: 'LoginView',
       debugShowCheckedModeBanner: false,
-      home: const LoginView(),
+      home: LoginView(),
     );
   }
 }
