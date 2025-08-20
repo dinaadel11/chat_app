@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:newsapp/firebase_options.dart';
+import 'package:newsapp/views/chat_view.dart';
 import 'package:newsapp/views/login_view.dart';
 import 'package:newsapp/views/widget/register_view.dart';
 
@@ -30,6 +31,7 @@ class ScholarChat extends StatelessWidget {
       routes: {
         'LoginView': (context) => LoginView(),
         'RegisterView': (context) => RegisterView(),
+        'ChatView': (context) => ChatView(),
       },
       initialRoute: 'LoginView',
       debugShowCheckedModeBanner: false,

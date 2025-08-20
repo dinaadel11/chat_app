@@ -97,6 +97,7 @@ class _RegisterViewState extends State<RegisterView> {
                       setState(() {});
                       try {
                         await registerUser();
+                        Navigator.pushNamed(context, 'ChatView');
                         showSnackBar(context, 'Success');
                       } on FirebaseAuthException catch (e) {
                         if (e.code == 'weak-password') {
